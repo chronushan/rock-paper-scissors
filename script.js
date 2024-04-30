@@ -103,7 +103,7 @@ function playGame() {
 		let humanSelection = getHumanChoice();
 		let computerSelection = getComputerChoice();
 		playRound(humanSelection, computerSelection);
-		if ((humanScore || computerScore) == 5) {
+		if (humanScore == 5 || computerScore == 5) {
 			if (humanScore > computerScore) {
 				console.log("You win the game!");
 				break;
