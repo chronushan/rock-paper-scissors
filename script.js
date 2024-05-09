@@ -153,12 +153,3 @@ scissor.addEventListener("click", () => {
 		}
 	}
 });
-if (humanScore == 5 || computerScore == 5) {
-	if (humanScore > computerScore) {
-		score.textContent = "You win the game!";
-		document.querySelector("body").appendChild(score);
-	} else {
-		score.textContent = "You lose the game!";
-		document.querySelector("body").appendChild(score);
-	}
-}
