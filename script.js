@@ -1,5 +1,9 @@
 let humanScore = 0;
 let computerScore = 0;
+
+var result = document.createElement("div");
+document.querySelector("body").appendChild(result);
+
 function getComputerChoice() {
 	let result = Math.floor(Math.random() * 3);
 
@@ -20,78 +24,69 @@ function getHumanChoice() {
 function playRound(humanChoice, computerChoice) {
 	if (humanChoice == "rock") {
 		if (computerChoice == "rock") {
-			console.log(
+			result.textContent =
 				"You tie!\nYour Score: " +
-					humanScore +
-					"\nComputer Score: " +
-					computerScore
-			);
+				humanScore +
+				"\nComputer Score: " +
+				computerScore;
 		} else if (computerChoice == "scissors") {
 			humanScore++;
-			console.log(
+			result.textContent =
 				"You win!\nYour Score: " +
-					humanScore +
-					"\nComputer Score: " +
-					computerScore
-			);
+				humanScore +
+				"\nComputer Score: " +
+				computerScore;
 		} else {
 			computerScore++;
-			console.log(
+			result.textContent =
 				"You lose!\nYour Score: " +
-					humanScore +
-					"\nComputer Score: " +
-					computerScore
-			);
+				humanScore +
+				"\nComputer Score: " +
+				computerScore;
 		}
 	} else if (humanChoice == "scissors") {
 		if (computerChoice == "rock") {
 			computerScore++;
-			console.log(
+			result.textContent =
 				"You lose!\nYour Score: " +
-					humanScore +
-					"\nComputer Score: " +
-					computerScore
-			);
+				humanScore +
+				"\nComputer Score: " +
+				computerScore;
 		} else if (computerChoice == "scissors") {
-			console.log(
+			result.textContent =
 				"You tie!\nYour Score: " +
-					humanScore +
-					"\nComputer Score: " +
-					computerScore
-			);
+				humanScore +
+				"\nComputer Score: " +
+				computerScore;
 		} else {
 			humanScore++;
-			console.log(
+			result.textContent =
 				"You win!\nYour Score: " +
-					humanScore +
-					"\nComputer Score: " +
-					computerScore
-			);
+				humanScore +
+				"\nComputer Score: " +
+				computerScore;
 		}
 	} else {
 		if (computerChoice == "rock") {
 			humanScore++;
-			return (
+			result.textContent =
 				"You win!\nYour Score: " +
 				humanScore +
 				"\nComputer Score: " +
-				computerScore
-			);
+				computerScore;
 		} else if (computerChoice == "scissors") {
 			computerScore++;
-			return (
+			result.textContent =
 				"You lose!\nYour Score: " +
 				humanScore +
 				"\nComputer Score: " +
-				computerScore
-			);
+				computerScore;
 		} else {
-			return (
+			result.textContent =
 				"You tie!\nYour Score: " +
 				humanScore +
 				"\nComputer Score: " +
-				computerScore
-			);
+				computerScore;
 		}
 	}
 }
@@ -115,4 +110,16 @@ function playGame() {
 	}
 }
 
-playGame();
+let rock = document.querySelector("#rockbtn");
+let paper = document.querySelector("#paperbtn");
+let scissor = document.querySelector("#scissorbtn");
+
+rock.addEventListener("click", () => {
+	playRound("rock", getComputerChoice());
+});
+paper.addEventListener("click", () => {
+	playRound("paper", getComputerChoice());
+});
+scissor.addEventListener("click", () => {
+	playRound("scissor", getComputerChoice());
+});
